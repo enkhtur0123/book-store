@@ -5,7 +5,7 @@ import { lusitana } from "@/app/ui/fonts";
 import { Suspense } from "react";
 //import { fetchInvoicesPages } from "@/app/lib/data";
 import { Metadata } from "next";
-import BooksTable from "../book/table";
+import BooksTable from "./book/table";
 
 export default async function Page() {
   return (

@@ -1,60 +1,55 @@
+"use client";
+
+import { useEffect } from "react";
 import Image from "next/image";
 import { fetchBooks } from "./data";
 import BookStatus from "./book_status";
 import { formatDateToLocal } from "@/lib/utils";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  TableContainer,
-} from "@chakra-ui/react";
 // import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 // import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 // import { fetchFilteredInvoices } from '@/app/lib/data';
-
-export default async function BooksTable({
-  currentPage,
-}: {
-  currentPage: number;
-}) {
-  //const books = await fetchBooks(currentPage);
+import "react-data-grid/lib/styles.css";
+import { ReactDataGrid } from "@ezgrid/grid-react";
+import { createColumn } from "@ezgrid/grid-core";
+export default function BooksTable({ currentPage }: { currentPage: number }) {
+  useEffect(() => {
+    const books = fetchBooks(currentPage);
+    console.log(books);
+  }, []);
 
   return (
-    <TableContainer>
-      <Table size="sm">
-        <Thead>
-          <Tr>
-            <Th>To convert</Th>
-            <Th>into</Th>
-            <Th isNumeric>multiply by</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td>inches</Td>
-            <Td>millimetres (mm)</Td>
-            <Td isNumeric>25.4</Td>
-          </Tr>
-          <Tr>
-            <Td>feet</Td>
-            <Td>centimetres (cm)</Td>
-            <Td isNumeric>30.48</Td>
-          </Tr>
-          <Tr>
-            <Td>yards</Td>
-            <Td>metres (m)</Td>
-            <Td isNumeric>0.91444</Td>
-          </Tr>
-        </Tbody>
-      </Table>
-    </TableContainer>
+    <ReactDataGrid
+      style={{ height: "300px", width: "100%" }}
+      gridOptions={{
+        dataProvider: [
+          {
+            id: 1,
+            firstName: "John",
+            lastName: "Doe",
+            age: 30,
+            birthDate: new Date(1980, 1, 1),
+          },
+          {
+            id: 2,
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 25,
+            birthDate: new Date(1985, 1, 1),
+          },
+        ],
+        uniqueIdentifierOptions: {
+          useField: "id",
+        },
+        columns: [
+          createColumn("id", "string", "Id"),
+          createColumn("firstName", "string", "First Name"),
+          createColumn("lastName", "string", "Last Name"),
+          createColumn("age", "number", "Age"),
+          createColumn("birthDate", "date", "Birth Date"),
+        ],
+      }}
+    ></ReactDataGrid>
   );
-
   //   return (
   //     <div className="mt-6 flow-root">
   //       <div className="inline-block min-w-full align-middle">

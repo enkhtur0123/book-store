@@ -1,6 +1,4 @@
-"use client";
-
-import SideNav from "@/app/pages/home/sidenav";
+import SideNav from "@/app/pages/sidenav";
 
 export const experimental_ppr = true;
 
