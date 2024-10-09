@@ -7,12 +7,12 @@ export async function fetchBooks(currentPage: number) {
 
   try {
     const invoices = await sql<BookTable>`
-      SELECT *
-      FROM book
+      SELECT id, name, author, image_url, published, status
+      FROM books
       ORDER BY name ASC
-      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
-
+    //LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    console.log(invoices.rows);
     return invoices.rows;
   } catch (error) {
     console.error("Database Error:", error);

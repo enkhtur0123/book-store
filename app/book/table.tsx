@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { fetchBooks } from "./data";
 import BookStatus from "./book_status";
-import { formatDateToLocal } from "@/lib/utils";
 // import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 // import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 // import { fetchFilteredInvoices } from '@/app/lib/data';
@@ -13,8 +12,10 @@ import { ReactDataGrid } from "@ezgrid/grid-react";
 import { createColumn } from "@ezgrid/grid-core";
 export default function BooksTable({ currentPage }: { currentPage: number }) {
   useEffect(() => {
-    const books = fetchBooks(currentPage);
-    console.log(books);
+    (async () => {
+      //const results = await fetchBooks(currentPage);
+      //console.log(results);
+    })();
   }, []);
 
   return (

@@ -12,14 +12,14 @@ import clsx from "clsx";
 import { PowerIcon } from "@heroicons/react/24/outline";
 
 const links = [
-  { name: "Home", href: "/pages", icon: HomeIcon },
-  { name: "Orders", href: "/pages/order", icon: UserGroupIcon },
+  { name: "Home", href: "/", icon: HomeIcon },
+  { name: "Orders", href: "/order", icon: UserGroupIcon },
   {
     name: "Books",
-    href: "/pages/book",
+    href: "/book",
     icon: DocumentDuplicateIcon,
   },
-  { name: "Customers", href: "/pages/customers", icon: UserGroupIcon },
+  { name: "Customers", href: "/customers", icon: UserGroupIcon },
 ];
 
 export default function SideNav() {
