@@ -1,6 +1,5 @@
 "use client";
 
-import SideNav from "./sidenav";
 import WelcomePage from "./welcome/page";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./_redux/store";
@@ -18,9 +17,5 @@ export default function Page() {
 }
 
 function MainPage() {
-  return (
-    <div className="w-full">
-      <SideNav />
-    </div>
-  );
+  return "Hello world";
 }

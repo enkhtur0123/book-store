@@ -1,6 +1,6 @@
 export type BookTable = {
   id: string;
-  name: string;
+  book: string;
   author: string;
   image_url: string;
   published: string;

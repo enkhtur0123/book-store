@@ -7,9 +7,8 @@ export async function fetchBooks(currentPage: number) {
 
   try {
     const invoices = await sql<BookTable>`
-      SELECT id, name, author, image_url, published, status
+      SELECT id, book, author, image_url, published, status
       FROM books
-      ORDER BY name ASC
     `;
     //LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     console.log(invoices.rows);
